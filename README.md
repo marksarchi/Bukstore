@@ -1,2 +1,2 @@
 # Bukstore
-App that allows you to search books online,and add them to your favourite list of books
+App that allows you to search books online,and add them to your favourite list of books - Used Databinding and MVVM architecture

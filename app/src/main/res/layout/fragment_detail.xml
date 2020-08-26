@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sarchimarcus.bukstore.detail.DetailViewModel" />
+    </data>
+
+
+<ScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/detail_imageView"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/placeholder"
+                app:imgUrl="@{viewmodel.selectedBook.book.imageLinks.thumbnail}"
+                android:layout_margin="16dp"
+
+                android:layout_alignParentTop="true"
+
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@id/detail_imageView">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TITLE"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    app:text="@{viewmodel.selectedBook.book.title}"
+                    android:font="@font/g_bold"
+                    android:textColor="@color/black"
+                    android:id="@+id/tvTitle"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Author"
+                    app:text="@{viewmodel.selectedBook.book.author[0]}"
+                    android:textSize="17sp"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/g_light"
+                    android:textColor="@color/black"
+                    android:id="@+id/tvauthor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="15sp"
+                    android:padding="10dp"
+                    app:text="@{viewmodel.selectedBook.book.description}"
+                    android:fontFamily="@font/g_light"
+                    android:textColor="@color/black"
+                    android:id="@+id/tvdescription"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/published_date"
+                    android:textSize="15sp"
+                    android:padding="10dp"
+                    app:text="@{viewmodel.selectedBook.book.publishedDate.toString()}"
+                    android:fontFamily="@font/g_light"
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_published_date"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
+</layout>
